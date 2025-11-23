@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>е-Подія</h1>
+        <button id="createEventBtn">Створити Подію</button>
+    </header>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Нова подія</span>
+                <span class="close-btn" id="closeModalBtn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="eventForm">
+                    
+                    <div class="form-group">
+                        <label>Назва події:</label>
+                        <input type="text" name="title" placeholder="Введіть назву..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Категорія:</label>
+                        <select name="category" required>
+                            <option value="Концерти">Концерти</option>
+                            <option value="Конференції">Конференції</option>
+                            <option value="Спорт">Спорт</option>
+                            <option value="Виставки">Виставки</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Дата проведення:</label>
+                        <input type="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ціна квитка (грн):</label>
+                        <input type="number" name="price" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Місце проведення:</label>
+                        <input type="text" name="location" placeholder="Адреса або локація" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Афіша (URL зображення):</label>
+                        <input type="url" name="poster" placeholder="http://...">
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="submit" id="saveEventBtn">Зберегти подію</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

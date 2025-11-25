@@ -19,7 +19,6 @@ const createBtn = document.getElementById('createEventBtn');
 const modalOverlay = document.getElementById('modalOverlay');
 const closeBtn = document.getElementById('closeModalBtn');
 const eventForm = document.getElementById('eventForm');
-+++++
 const openModal = () => {
     modalOverlay.style.display = 'flex';
 };

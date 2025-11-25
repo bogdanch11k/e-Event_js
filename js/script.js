@@ -1,5 +1,6 @@
 class EventEntry {
     constructor(title, category, date, price, location, poster) {
+        this.id = Date.now();
         this.title = title;
         this.category = category;
         this.date = date;
@@ -9,13 +10,15 @@ class EventEntry {
     }
 }
 
-const eventsList = [];
+const savedData = localStorage.getItem('eventsData');
+const eventsList = savedData ? JSON.parse(savedData) : [];
+
+console.log(eventsList);
 
 const createBtn = document.getElementById('createEventBtn');
 const modalOverlay = document.getElementById('modalOverlay');
 const closeBtn = document.getElementById('closeModalBtn');
 const eventForm = document.getElementById('eventForm');
-
 const openModal = () => {
     modalOverlay.style.display = 'flex';
 };
@@ -55,6 +58,8 @@ eventForm.addEventListener('submit', (e) => {
     );
 
     eventsList.push(newEvent);
+
+    localStorage.setItem('eventsData', JSON.stringify(eventsList));
 
     console.log(eventsList);
 

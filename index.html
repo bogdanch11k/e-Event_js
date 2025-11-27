@@ -10,21 +10,37 @@
 
     <header>
         <h1>e-Event</h1>
-        
-        <div class="header-controls">
-            <select id="categoryFilter">
-                <option value="">Всі категорії</option>
-                <option value="Концерти">Концерти</option>
-                <option value="Конференції">Конференції</option>
-                <option value="Спорт">Спорт</option>
-                <option value="Виставки">Виставки</option>
-            </select>
-            <input type="text" id="searchInput" placeholder="Пошук за назвою...">
-            <button id="createEventBtn">Створити Подію</button>
-        </div>
+        <button id="filterToggleBtn" class="filter-toggle-btn">
+            <span class="icon">☰</span> Фільтри
+        </button>
+        <button id="createEventBtn">Створити Подію</button>
     </header>
 
+    <div id="filtersBar" class="filters-bar mobile-hidden">
+        <select id="categoryFilter">
+            <option value="">-- Всі категорії --</option>
+            <option value="Концерти">Концерти</option>
+            <option value="Конференції">Конференції</option>
+            <option value="Спорт">Спорт</option>
+            <option value="Виставки">Виставки</option>
+        </select>
+
+        <input type="text" id="searchInput" placeholder="Пошук за назвою...">
+
+        <select id="sortFilter">
+            <option value="">-- Без сортування --</option>
+            <option value="cheap">Ціна: від дешевих</option>
+            <option value="expensive">Ціна: від дорогих</option>
+            <option value="date_new">Дата: спочатку нові</option>
+            <option value="date_old">Дата: спочатку старі</option>
+        </select>
+    </div>
+
     <div id="eventsContainer" class="events-container"></div>
+    
+    <div class="pagination-wrapper">
+        <div id="pagination" class="pagination-bar"></div>
+    </div>
 
     <div id="modalOverlay" class="modal-overlay">
         <div class="modal-content">
@@ -34,11 +50,12 @@
             </div>
             <div class="modal-body">
                 <form id="eventForm">
-                    <div class="form-group">
-                        <label>Назва події:</label>
-                        <input type="text" name="title" placeholder="Введіть назву..." required>
-                    </div>
+                    <input type="hidden" name="id">
 
+                    <div class="form-group">
+                        <label>Назва події (мін. 3 символи):</label>
+                        <input type="text" name="title" required>
+                    </div>
                     <div class="form-group">
                         <label>Категорія:</label>
                         <select name="category" required>
@@ -48,27 +65,22 @@
                             <option value="Виставки">Виставки</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label>Дата проведення:</label>
                         <input type="date" name="date" required>
                     </div>
-
                     <div class="form-group">
                         <label>Ціна квитка (грн):</label>
                         <input type="number" name="price" min="0" required>
                     </div>
-
                     <div class="form-group">
                         <label>Місце проведення:</label>
-                        <input type="text" name="location" placeholder="Адреса або локація" required>
+                        <input type="text" name="location" required>
                     </div>
-
                     <div class="form-group">
                         <label>Афіша (URL зображення):</label>
-                        <input type="url" name="poster" placeholder="http://...">
+                        <input type="url" name="poster" placeholder="https://example.com/image.jpg">
                     </div>
-                    
                     <div class="modal-footer">
                         <button type="submit" id="saveEventBtn">Зберегти</button>
                     </div>
@@ -77,6 +89,6 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

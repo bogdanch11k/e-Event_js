@@ -9,19 +9,31 @@
 <body>
 
     <header>
-        <h1>е-Подія</h1>
-        <button id="createEventBtn">Створити Подію</button>
+        <h1>Event Admin Panel</h1>
+        
+        <div class="header-controls">
+            <select id="categoryFilter">
+                <option value="">Всі категорії</option>
+                <option value="Концерти">Концерти</option>
+                <option value="Конференції">Конференції</option>
+                <option value="Спорт">Спорт</option>
+                <option value="Виставки">Виставки</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Пошук за назвою...">
+            <button id="createEventBtn">Створити Подію</button>
+        </div>
     </header>
+
+    <div id="eventsContainer" class="events-container"></div>
 
     <div id="modalOverlay" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <span>Нова подія</span>
+                <span id="modalTitle">Нова подія</span>
                 <span class="close-btn" id="closeModalBtn">&times;</span>
             </div>
             <div class="modal-body">
                 <form id="eventForm">
-                    
                     <div class="form-group">
                         <label>Назва події:</label>
                         <input type="text" name="title" placeholder="Введіть назву..." required>
@@ -58,7 +70,7 @@
                     </div>
                     
                     <div class="modal-footer">
-                        <button type="submit" id="saveEventBtn">Зберегти подію</button>
+                        <button type="submit" id="saveEventBtn">Зберегти</button>
                     </div>
                 </form>
             </div>
